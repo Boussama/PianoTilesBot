@@ -11,5 +11,5 @@ This bot work perfectly on a macOS Sierra with a resolution of 1440 x 900 on Goo
 
 #Start
 
-to start you have juste to open the [Piano Tiles](http://tanksw.com/piano-tiles/) in your browser make sure that you delete the div with the id of "opt_title" and "header" with the integrated developpement tool.
+to start you have juste to open the [Piano Tiles](http://tanksw.com/piano-tiles/) in your browser or use the -o option to open it through the bot.
 you are free to open the python file like you want you have just to make the game space visible.

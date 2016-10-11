@@ -1,12 +1,15 @@
 from PIL import ImageGrab
 import time
 import autopy
-
+import argparse
+import webbrowser
 
 # Globals
 
 x_pad = 518
 y_pad = 103
+
+url = 'http://www.tanksw.com/piano-tiles/'
 
 def hitTheRightKey():
 
@@ -71,7 +74,14 @@ class Cord:
  
 def main():
 
-    mouseclick( Cord.classic_menu[0],Cord.classic_menu[1]+100)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-o", "--open", help="open the game url in the web browser and wait 8 second before begining", action="store_true")
+    args = parser.parse_args()
+    if args.open:
+        webbrowser.open_new_tab(url)
+        time.sleep(8)
+    else:
+        mouseclick( Cord.classic_menu[0],Cord.classic_menu[1]+100)
 
     pressDownButton()
     pressDownButton()
