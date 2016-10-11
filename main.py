@@ -25,9 +25,9 @@ def hitTheRightKey():
         print getPixelValuesOfGame(Cord.target_bloc_d)
 
 def getPixelValuesOfGame(x):
-    box = (x_pad, y_pad, x_pad+400, y_pad+600)
+    box = (x_pad+x[0], y_pad+x[1], x_pad+x[0]+1, y_pad+x[1]+1)
     im = ImageGrab.grab(box)
-    return im.getpixel(x)
+    return im.getpixel((0,0))
 
 def mouseclick(posx,posy):
     autopy.mouse.move( posx,posy)
