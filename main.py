@@ -6,7 +6,7 @@ import autopy
 # Globals
 
 x_pad = 518
-y_pad = 97
+y_pad = 103
 
 def hitTheRightKey():
 
@@ -30,9 +30,6 @@ def getPixelValuesOfGame(x):
     return im.getpixel(x)
 
 def mouseclick(posx,posy):
-    # uncomment this line if you want to force the mouse
-    # to MOVE to the click location first (I found it was not necessary).
-    #mouseEvent(kCGEventMouseMoved, posx,posy);
     autopy.mouse.move( posx,posy)
     time.sleep(.1)
     autopy.mouse.click()
@@ -54,6 +51,10 @@ def pressFButton():
     autopy.key.type_string('f')
     time.sleep(.1)
 
+def pressDownButton():    
+    autopy.key.tap(long(autopy.key.K_DOWN))
+    time.sleep(.1)
+
 class Cord:
     
     classic_menu = (x_pad+1,y_pad+1)
@@ -69,14 +70,19 @@ class Cord:
     target_bloc_d = (305, 305)
  
 def main():
-    
+
+    mouseclick( Cord.classic_menu[0],Cord.classic_menu[1]+100)
+
+    pressDownButton()
+    pressDownButton()
+    pressDownButton()
+    pressDownButton()
+
     mouseclick( Cord.classic_menu[0],Cord.classic_menu[1])
     mouseclick( Cord.classic_menu[0],Cord.classic_menu[1])
-    #quickGrab.screenGrab()
-    #pressFButton()
+
     while getPixelValuesOfGame((1,550)) != (0, 226, 108, 255):
         hitTheRightKey()
-        #time.sleep(.1)
 
  
 if __name__ == '__main__':
